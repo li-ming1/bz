@@ -1,0 +1,580 @@
+﻿
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>音乐搜索器 - 多站合一音乐搜索,音乐在线试听</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="author" content="maicong.me">
+    <meta name="keywords" content="音乐搜索,音乐搜索器,音乐试听,音乐在线听,网易云音乐,QQ音乐,酷狗音乐,酷我音乐,虾米音乐,百度音乐,一听音乐,咪咕音乐,荔枝FM,蜻蜓FM,喜马拉雅FM,全民K歌,5sing原创翻唱音乐">
+    <meta name="description" content="特制多站合一音乐搜索解决方案，可搜索试听网易云音乐、QQ音乐、酷狗音乐、酷我音乐、虾米音乐、百度音乐、一听音乐、咪咕音乐、荔枝FM、蜻蜓FM、喜马拉雅FM、全民K歌、5sing原创翻唱音乐。">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="音乐搜索器">
+    <meta name="application-name" content="音乐搜索器">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="https://music.nuoyo.cn/static/img/favicon.ico">
+    <link rel="apple-touch-icon" href="https://music.nuoyo.cn/static/img/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/amazeui/2.3.0/css/amazeui.min.css">
+    <link rel="stylesheet" href="https://music.nuoyo.cn/static/css/style.css?v1.6.2">
+</head>
+<body>
+
+    <section class="am-g about">
+        <div class="am-container am-margin-vertical-xl">
+            <header class="am-padding-vertical">
+                <h2 class="about-title about-color">音乐搜索器</h2>
+                <p class="am-text-center">特制多站合一音乐搜索解决方案</p>
+            </header>
+            <hr>
+            <div class="am-u-lg-12 am-padding-vertical">
+                <form id="j-validator" class="am-form am-margin-bottom-lg" method="post">
+                    <div class="am-u-md-12 am-u-sm-centered">
+                        <ul id="j-nav" class="am-nav am-nav-pills am-nav-justify am-margin-bottom music-tabs">
+                            <li class="am-active" data-filter="name">
+                                <a>音乐名称</a>
+                            </li>
+                            <li data-filter="id">
+                                <a>音乐 ID</a>
+                            </li>
+                            <li data-filter="url">
+                                <a>音乐地址</a>
+                            </li>
+                        </ul>
+                        <div class="am-form-group">
+                            <input id="j-input" data-filter="name" class="am-form-field am-input-lg am-text-center am-radius" placeholder="例如: 不要说话 陈奕迅" data-am-loading="{loadingText: ' '}" pattern="^.+$" required>
+                            <div class="am-alert am-alert-danger am-animation-shake"></div>
+                        </div>
+                        <div id="j-type" class="am-form-group am-text-center music-type">
+                            <label class="am-radio-inline">
+                                <input type="radio" name="music_type" value="netease" data-am-ucheck checked>
+                                网易
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="music_type" value="qq" data-am-ucheck>
+                                ＱＱ
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="music_type" value="kugou" data-am-ucheck>
+                                酷狗
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="music_type" value="kuwo" data-am-ucheck>
+                                酷我
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="music_type" value="xiami" data-am-ucheck>
+                                虾米
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="music_type" value="baidu" data-am-ucheck>
+                                百度
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="music_type" value="1ting" data-am-ucheck>
+                                一听
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="music_type" value="migu" data-am-ucheck>
+                                咪咕
+                            </label>
+                            <br />                                                    <label class="am-radio-inline">
+                                <input type="radio" name="music_type" value="lizhi" data-am-ucheck>
+                                荔枝
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="music_type" value="qingting" data-am-ucheck>
+                                蜻蜓
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="music_type" value="ximalaya" data-am-ucheck>
+                                喜马拉雅
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="music_type" value="kg" data-am-ucheck>
+                                全民K歌
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="music_type" value="5singyc" data-am-ucheck>
+                                5sing原创
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="music_type" value="5singfc" data-am-ucheck>
+                                5sing翻唱
+                            </label>
+                        </div>
+                        <button id="j-submit" type="submit" class="am-btn am-btn-primary am-btn-lg am-btn-block am-radius" data-am-loading="{spinner: 'cog', loadingText: '正在搜索相关音乐...', resetText: 'Get &#x221A;'}">Get &#x221A;</button>
+                    </div>
+                </form>
+                <form id="j-main" class="am-form am-u-md-12 am-u-sm-centered music-main">
+                    <a type="button" id="j-back" class="am-btn am-btn-success am-btn-lg am-btn-block am-radius am-margin-bottom-lg">成功 Get &#x221A; 返回继续 <i class="am-icon-reply am-icon-fw"></i></a>
+                    <div class="am-g am-margin-bottom-sm">
+                        <div class="am-u-lg-6">
+                            <div class="am-input-group am-input-group-sm am-margin-bottom-sm" data-am-popover="{content: '音乐地址', trigger: 'hover'}">
+                                <span class="am-input-group-label"><i class="am-icon-link am-icon-fw"></i></span>
+                                <input id="j-link" class="am-form-field" readonly>
+                                <span class="am-input-group-btn">
+                                    <a id="j-link-btn" class="am-btn am-btn-default" target="_blank">
+                                        <i class="am-icon-external-link"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="am-u-lg-6">
+                            <div class="am-input-group am-input-group-sm am-margin-bottom-sm" data-am-popover="{content: '音乐链接', trigger: 'hover'}">
+                                <span class="am-input-group-label"><i class="am-icon-music am-icon-fw"></i></span>
+                                <input id="j-src" class="am-form-field" readonly>
+                                <span class="am-input-group-btn">
+                                    <a id="j-src-btn" class="am-btn am-btn-default" target="_blank">
+                                        <i id="j-src-btn-icon" class="am-icon-external-link"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-g">
+                        <div class="am-u-lg-6">
+                            <div class="am-input-group am-input-group-sm am-margin-bottom-sm" data-am-popover="{content: '音乐ID', trigger: 'hover'}">
+                                <span class="am-input-group-label"><i class="am-icon-list-ol am-icon-fw"></i></span>
+                                <input id="j-songid" class="am-form-field" readonly>
+                            </div>
+                        </div>
+                        <div class="am-u-lg-6">
+                            <div class="am-input-group am-input-group-sm am-margin-bottom-sm" data-am-popover="{content: '音乐歌词', trigger: 'hover'}">
+                                <span class="am-input-group-label"><i class="am-icon-file-text-o am-icon-fw"></i></span>
+                                <input id="j-lrc" class="am-form-field" readonly>
+                                <span class="am-input-group-btn">
+                                    <a id="j-lrc-btn" class="am-btn am-btn-default" target="_blank">
+                                        <i id="j-lrc-btn-icon" class="am-icon-external-link"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-g">
+                        <div class="am-u-lg-6">
+                            <div class="am-input-group am-input-group-sm am-margin-bottom-sm" data-am-popover="{content: '音乐名称', trigger: 'hover'}">
+                                <span class="am-input-group-label"><i class="am-icon-tag am-icon-fw"></i></span>
+                                <input id="j-name" class="am-form-field" readonly>
+                            </div>
+                        </div>
+                        <div class="am-u-lg-6">
+                            <div class="am-input-group am-input-group-sm am-margin-bottom-sm" data-am-popover="{content: '音乐作者', trigger: 'hover'}">
+                                <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
+                                <input id="j-author" class="am-form-field" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="j-show" class="am-margin-vertical">
+                        <div id="j-player" class="aplayer"></div>
+                    </div>
+                </form>
+                <div class="am-u-md-12 am-u-sm-centered am-margin-vertical music-tips">
+                    <h4>帮助：</h4>
+                    <p><b>标红</b> 为 <strong>音乐 ID</strong>，<u>下划线</u> 表示 <strong>音乐地址</strong></p>
+                    <ul>
+                        <li>蜻蜓 FM 的音乐 ID 需要使用 <code>| (管道符)</code> 组合，例如 <code>158696|5266259</code></li>
+                        <li>全民 K 歌的音乐名称请输入 <code>shareuid</code>，这是用户的 uid，搜索结果是该用户的所有公开作品</li>
+                        <li>全民 K 歌的音乐 ID 请输入 <code>shareid</code> 这是单曲分享 id，搜索结果是该单曲信息</li>
+                    </ul>
+                    <blockquote id="j-quote" class="music-overflow">
+                        <p><span>网易：</span><u>http://music.163.com/#/song?id=<b>25906124</b></u></p>
+                        <p><span>ＱＱ：</span><u>http://y.qq.com/n/yqq/song/<b>002B2EAA3brD5b</b>.html</u></p>
+                        <p><span>酷狗：</span><u>http://www.kugou.com/song/#hash=<b>08228af3cb404e8a4e7e9871bf543ff6</b></u></p>
+                        <p><span>酷我：</span><u>http://www.kuwo.cn/yinyue/<b>382425</b>/</u></p>
+                        <p><span>虾米：</span><u>http://www.xiami.com/song/<b>2113248</b></u></p>
+                        <p><span>百度：</span><u>http://music.baidu.com/song/<b>266069</b></u></p>
+                        <p><span>一听：</span><u>http://www.1ting.com/player/b6/player_<b>357838</b>.html</u></p>
+                        <p><span>咪咕：</span><u>http://music.migu.cn/v2/music/song/<b>477803</b></u></p>
+                        <p><span>荔枝：</span><u>http://www.lizhi.fm/1947925/<b>2498707770886461446</b></u></p>
+                        <p><span>蜻蜓：</span><u>http://www.qingting.fm/channels/<b>158696</b>/programs/<b>5266259</b></u></p>
+                        <p><span>喜马拉雅：</span><u>http://www.ximalaya.com/51701370/sound/<b>24755731</b></u></p>
+                        <p><span>全民K歌 (shareuid)：</span><u>http://kg.qq.com/node/personal?uid=<b>619a958c25283e88</b></u></p>
+                        <p><span>全民K歌 (shareid)：</span><u>https://kg.qq.com/node/play?s=<b>FA3h1gFhd6Vk7Ft4</b></u></p>
+                        <p><span>5sing原创：</span><u>http://5sing.kugou.com/yc/<b>3082899</b>.html</u></p>
+                        <p><span>5sing翻唱：</span><u>http://5sing.kugou.com/fc/<b>14369766</b>.html</u></p>
+                    </blockquote>
+                    <div id="j-more" class="music-more">查看更多</div>
+                </div>
+            </div>
+        </div>
+        <center>
+        <script id="LA-DATA-WIDGET" crossorigin="anonymous" charset="UTF-8" src="https://v6-widget.51.la/v6/K5w5NK3iGbDxFyWC/quote.js?theme=#1690FF,#333333,#1170C9,#333333,#FFFFFF,#1690FF,12&f=12"></script></center>
+        <div class="am-popup" id="copr-info">
+            <div class="am-popup-inner">
+                <div class="am-popup-hd">
+                    <h4 class="am-popup-title">免责声明</h4>
+                    <span data-am-modal-close class="am-close">&times;</span>
+                </div>
+                <div class="am-popup-bd">
+                    <p>本站音频文件来自各网站接口，本站不会修改任何音频文件</p>
+                    <p>音频版权来自各网站，本站只提供数据查询服务，不提供任何音频存储和贩卖服务</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--<footer class="footer">
+
+        <p class="am-text-sm">v1.6.2&nbsp;&nbsp;2024&nbsp;&nbsp;<a href="https://nuoyo.cn">站长主页</a>&nbsp;&nbsp;本站由 <a href="https://su.sctes.com/register?code=8d6mhms6fh7yg" target="_blank"><span class="badge-subject bg-green" style="color:pink">无畏云</span></a> 提供CDN/存储服务</p>
+    </footer>-->
+    <script src="https://cdn.staticfile.org/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/amazeui/2.3.0/js/amazeui.min.js"></script>
+    <script src="https://cdn.staticfile.org/aplayer/1.6.0/APlayer.min.js"></script>
+    <script src="https://cdn.staticfile.org/Base64/1.0.1/base64.min.js"></script>
+    <script>
+        'use strict';
+
+        /**
+         *
+         * 音乐搜索器 - JS 文件
+         *
+         * @author  MaiCong <i@maicong.me>
+         * @link    https://github.com/maicong/music
+         * @since   1.5.9
+         *
+         */
+
+        $(function () {
+            // 获取参数
+            function q(key) {
+                var value = null;
+                var tmp = [];
+                location.search
+                    .substr(1)
+                    .split('&')
+                    .forEach(function (v) {
+                        tmp = v.split('=');
+                        if (tmp[0] === key) {
+                            value = decodeURIComponent(tmp[1]);
+                        }
+                    });
+                return value;
+            }
+
+            // 加入历史记录
+            function pushState(title, link) {
+                if (window.history && window.history.pushState) {
+                    window.history.pushState(null, title, link);
+                }
+            }
+
+            // 获取 url
+            function getUrl(path) {
+                var url = location.href.split('?')[0];
+                return path ? url + path : url;
+            }
+
+            // 申明变量
+            var player = null;
+            var playerList = [];
+            var nopic = 'static/img/nopic.jpg';
+            var qName = q('name');
+            var qId = q('id');
+            var qUrl = q('url');
+            var qType = q('type');
+            var siteTitle = document.title;
+
+            // 如果参数存在 name/id 和 type
+            if ((qName || qId) && qType) {
+                setTimeout(function () {
+                    $('#j-input').val(qName || qId);
+                    $('#j-type input[value="' + qType + '"]').prop('checked', true);
+                    if (qName) {
+                        $('#j-nav [data-filter="name"]').trigger('click');
+                    }
+                    if (qId) {
+                        $('#j-nav [data-filter="id"]').trigger('click');
+                    }
+                    $('#j-validator').trigger('submit');
+                }, 0);
+            }
+
+            // 如果参数存在 url
+            if (qUrl) {
+                setTimeout(function () {
+                    $('#j-type').hide();
+                    $('#j-input').val(qUrl);
+                    $('#j-nav [data-filter="url"]').trigger('click');
+                    $('#j-validator').trigger('submit');
+                }, 0);
+            }
+
+            // Tab 切换
+            $('#j-nav').on('click', 'li', function () {
+                var holder = {
+                    name: '例如: 不要说话 陈奕迅',
+                    id: '例如: 25906124',
+                    url: '例如: http://music.163.com/#/song?id=25906124',
+                    pattern_name: '^.+$',
+                    pattern_id: '^[\\w\\/\\|]+$',
+                    pattern_url: '^https?:\\/\\/\\S+$'
+                };
+                var filter = $(this).data('filter');
+
+                $(this)
+                    .addClass('am-active')
+                    .siblings('li')
+                    .removeClass('am-active');
+
+                $('#j-input')
+                    .data('filter', filter)
+                    .attr({
+                        placeholder: holder[filter],
+                        pattern: holder['pattern_' + filter]
+                    })
+                    .removeClass('am-field-valid am-field-error am-active')
+                    .closest('.am-form-group')
+                    .removeClass('am-form-success am-form-error')
+                    .find('.am-alert')
+                    .hide();
+
+                if (filter === 'url') {
+                    $('#j-type').hide();
+                } else {
+                    $('#j-type').show();
+                }
+            });
+
+            // 输入验证
+            $('#j-validator').validator({
+                onValid: function onValid(v) {
+                    $(v.field)
+                        .closest('.am-form-group')
+                        .find('.am-alert')
+                        .hide();
+                },
+                onInValid: function onInValid(v) {
+                    var $field = $(v.field);
+                    var $group = $field.closest('.am-form-group');
+                    var msgs = {
+                        name: '将 名称 和 作者 一起输入可提高匹配度',
+                        id: '输入错误，请查看下面的帮助',
+                        url: '输入错误，请查看下面的帮助'
+                    };
+                    var $alert = $group.find('.am-alert');
+                    var msg = msgs[$field.data('filter')] || this.getValidationMessage(v);
+
+                    if (!$alert.length) {
+                        $alert = $(
+                            '<div class="am-alert am-alert-danger am-animation-shake"></div>'
+                        )
+                            .hide()
+                            .appendTo($group);
+                    }
+                    $alert.html(msg).show();
+                },
+                submit: function submit(v) {
+                    v.preventDefault();
+                    if (this.isFormValid()) {
+                        var input = $.trim($('#j-input').val());
+                        var filter = $('#j-input').data('filter');
+                        var type =
+                            filter === 'url' ? '_' : $('input[name="music_type"]:checked').val();
+                        var page = 1;
+                        var $more = $('<div class="aplayer-more">载入更多</div>');
+                        var isload = false;
+                        var ajax = function ajax(input, filter, type, page) {
+                            $.ajax({
+                                type: 'POST',
+                                url: getUrl(),
+                                timeout: 30000,
+                                data: {
+                                    input: input,
+                                    filter: filter,
+                                    type: type,
+                                    page: page
+                                },
+                                dataType: 'json',
+                                beforeSend: function beforeSend() {
+                                    isload = true;
+                                    var title = document.title;
+                                    switch (filter) {
+                                        case 'name':
+                                            pushState(title, getUrl('?name=' + input + '&type=' + type));
+                                            break;
+                                        case 'id':
+                                            pushState(title, getUrl('?id=' + input + '&type=' + type));
+                                            break;
+                                        case 'url':
+                                            pushState(title, getUrl('?url=' + encodeURIComponent(input)));
+                                            break;
+                                    }
+                                    if (page === 1) {
+                                        $('#j-input').attr('disabled', true);
+                                        $('#j-submit').button('loading');
+                                    } else {
+                                        $more.text('请稍后...');
+                                    }
+                                },
+                                success: function success(result) {
+                                    if (result.code === 200 && result.data) {
+                                        result.data.map(function (v) {
+                                            if (!v.title) v.title = '暂无';
+                                            if (!v.author) v.author = '暂无';
+                                            if (!v.pic) v.pic = nopic;
+                                            if (!v.lrc) v.lrc = '[00:00.00] 暂无歌词';
+                                            if (!/\[00:(\d{2})\./.test(v.lrc)) {
+                                                v.lrc = '[00:00.00] 无效歌词';
+                                            }
+                                        });
+                                        var setValue = function setValue(data) {
+                                            $('#j-link').val(data.link);
+                                            $('#j-link-btn').attr('href', data.link);
+                                            $('#j-src').val(data.url);
+                                            $('#j-src-btn').attr('href', data.url);
+                                            $('#j-lrc').val(data.lrc);
+                                            $('#j-lrc-btn').attr(
+                                                'href',
+                                                'data:application/octet-stream;base64,' +
+                                                btoa(unescape(encodeURIComponent(data.lrc)))
+                                            );
+                                            if ('download' in $('#j-src-btn')[0]) {
+                                                var name = data.title + '-' + data.author;
+                                                $('#j-src-btn').attr('download', name + '.mp3');
+                                                $('#j-lrc-btn').attr('download', name + '.lrc');
+                                                $('#j-src-btn-icon, #j-lrc-btn-icon')
+                                                    .addClass('am-icon-download')
+                                                    .removeClass('am-icon-external-link');
+                                            }
+                                            $('#j-songid').val(data.songid);
+                                            $('#j-name').val(data.title);
+                                            $('#j-author').val(data.author);
+                                        };
+
+                                        if (page === 1) {
+                                            if (player) {
+                                                player.pause();
+                                            }
+
+                                            playerList = result.data;
+
+                                            setValue(playerList[0]);
+
+                                            $('#j-validator').slideUp();
+                                            $('#j-main').slideDown();
+
+                                            player = new APlayer({
+                                                element: $('#j-player')[0],
+                                                autoplay: false,
+                                                narrow: false,
+                                                showlrc: 1,
+                                                mutex: false,
+                                                mode: 'circulation',
+                                                preload: 'metadata',
+                                                theme: '#0e90d2',
+                                                music: result.data
+                                            });
+
+                                            $('#j-player').append($more);
+
+                                            $more.on('click', function () {
+                                                if (isload) return;
+                                                page++;
+                                                ajax(input, filter, type, page);
+                                            });
+                                        } else {
+                                            player.addMusic(result.data);
+                                            playerList = playerList.concat(result.data);
+                                        }
+
+                                        player.on('canplay', function () {
+                                            player.play();
+                                        });
+                                        player.on('play', function () {
+                                            var data = playerList[player.playIndex];
+                                            var img = new Image();
+                                            img.src = data.pic;
+                                            img.onerror = function () {
+                                                $('.aplayer-pic').css(
+                                                    'background-image',
+                                                    'url(' + nopic + ')'
+                                                );
+                                            };
+                                            document.title =
+                                                '正在播放: ' + data.title + ' - ' + data.author;
+                                            setValue(data);
+                                        });
+                                        player.on('ended', function () {
+                                            document.title = siteTitle;
+                                        });
+                                        if (result.data.length < 10) {
+                                            $more.hide();
+                                        } else {
+                                            $more.text('载入更多');
+                                        }
+                                    } else {
+                                        if (page === 1) {
+                                            $('#j-input')
+                                                .closest('.am-form-group')
+                                                .find('.am-alert')
+                                                .html(result.error || '(°ー°〃) 服务器好像罢工了')
+                                                .show();
+                                        } else {
+                                            $more.text('没有了');
+                                            setTimeout(function () {
+                                                $more.slideUp();
+                                            }, 1000);
+                                        }
+                                    }
+                                },
+                                error: function error(e, t) {
+                                    if (page === 1) {
+                                        var err = '(°ー°〃) 出了点小问题，请重试';
+                                        if (t === 'timeout') {
+                                            err = '(°ー°〃) 请求超时了，请稍后重试';
+                                        }
+                                        $('#j-input')
+                                            .closest('.am-form-group')
+                                            .find('.am-alert')
+                                            .html(err)
+                                            .show();
+                                    } else {
+                                        $more.text('(°ー°〃) 加载失败了，点击重试');
+                                    }
+                                },
+                                complete: function complete() {
+                                    isload = false;
+                                    if (page === 1) {
+                                        $('#j-input').attr('disabled', false);
+                                        $('#j-submit').button('reset');
+                                    }
+                                }
+                            });
+                        };
+
+                        ajax(input, filter, type, page);
+                    }
+                }
+            });
+
+            $('#j-main input').focus(function () {
+                $(this).select();
+            });
+
+            $('#j-more').on('click', function () {
+                $(this).hide();
+                $('#j-quote').removeClass('music-overflow');
+            });
+
+            $('#j-back').on('click', function () {
+                if (player) {
+                    player.pause();
+                }
+                $('#j-validator').slideDown();
+                $('#j-main').slideUp();
+                $('#j-main input').val('');
+                document.title = siteTitle;
+            });
+        });
+
+    </script>
+    <!--<script src="https://nuoyo.cn/static/js/music.js?v1.6.2"></script>-->
+</body>
+</html>
